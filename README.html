@@ -1,0 +1,135 @@
+<p><strong>KastMenu/KastAgent</strong>  </p>
+<h2 id="-unixes-operating-system-s-menu-broadkast-"><strong>Unixes Operating System&#39;s Menu broadKast</strong></h2>
+<p><strong><a href="https://www.kastmenu.com">Official web site here !</a></strong>
+<strong><a href="https://www.kastmenu.com:9000">KastAgent Demo here !</a></strong></p>
+<p><strong><u>Summary:</u></strong></p>
+<ul>
+<li>1/ <a href="#What is KastAgent ?">What is KastAgent ?</a></li>
+<li>2/ <a href="#How it runs ?">How it runs ?</a></li>
+<li>3/ <a href="#What Public is it dedicated for ?">What Public is it dedicated for ?</a></li>
+<li>4/ <a href="#KastAgent Log System">KastAgent Log System</a></li>
+<li>5/ <a href="#KastAgent Replay">KastAgent Replay</a></li>
+<li>6/ <a href="#KastAgent Help Sytem">KastAgent Help Sytem</a></li>
+<li>7/ <a href="#KastAgent runs under the User and this is Powerfull !">KastAgent runs under the User and this is Powerfull !</a></li>
+<li>8/ <a href="#KastAgent Install">Install KastAgent</a>
+<br></li>
+</ul>
+<br>
+
+<p><strong>1/ <a href="#top">What is KastAgent ?</a></strong>  </p>
+<p><strong>K</strong>astAgent is the agent for KastMenu.<br>KastAgent is automanaged and deployed by KastMenu.<br>So this project is not intend to be downloaded/installed standalone outside KastMenu.<br>But is there to follow the development of KastAgent.<br>Hence KastAgent is periodically integrated into KastMenu under the directory kastagent.  </p>
+<p><strong>K</strong>astAgent is the remote counterpart of the KastMenu server and runs on the target machine.<br>For the KastMenu Server, see the KastMenu project.  </p>
+<p><strong>K</strong>astAgent is both a Web and a Terminal Menu.</p>
+<ul>
+<li>It is trigered remotly by KastMenu server or locally by the user, via SSH  and runs on a local machine or VM.</li>
+<li>It is called for a specific User and runs under the User of this session.  </li>
+<li>It runs everywhere you can have a unix Terminal.  </li>
+<li>It provides Web or Terminal Menu access to any unix comands under the unix security paradygm.  </li>
+</ul>
+<p><strong>K</strong>astAgent aims to support any linux distributions,<br>while KastMenu server will only plan to support real free linux: debian distributions and derivatives.  </p>
+<p><strong>K</strong>astAgent is Powefull because it can run any command that runs on Unix.  </p>
+<p><strong>K</strong>astAgent Learning Curve is 0 because you set the command as expected in normal terminal into a menu file.<br>This menu file supports 3 formats:  </p>
+<ul>
+<li>XML or</li>
+<li>YAML or</li>
+<li>HCL
+You choose the one which suits you.  </li>
+</ul>
+<p><strong>K</strong>astAgent is WYSIWYG:<br>The supported tags are Logical and StraightForward:<br>Config</p>
+<ul>
+<li><strong>Menu</strong></li>
+<li><strong>IMenu</strong>
+Menu tags also support Other Menu or IMenu tags.<br>IMenu tags also support Other IMenu or Menu tags.<br>Option has an Attribute &quot;command&quot; to call a shell command.<br>IMenu has an Attribute &quot;command&quot; to call a shell command on validation of the IMenu.  </li>
+</ul>
+<p><strong>The command output is not perverted nor tansformed</strong> it is directly dumped, the User sees what he gets from the command output.  </p>
+<p><strong>K</strong>astAgent is interactive:<br>IMenu are <strong>interactive</strong> Menus, they supports <strong>input fields</strong> as IOptions:<br>IOptions are <strong>input fields</strong> with their type leverage by <strong><a href="./wk.html">wk</a></strong> a simple an intuitive declarative type libray.<br><br></p>
+<p>
+<br>
+
+<strong>2/ <a href="#top">How it runs ?</a></strong>  </p>
+<p><strong>K</strong>astAgent runs simply as:<br>$ <strong>km</strong> myfile.xml<br><em>(or <strong>km</strong> myfile.yaml, km myfile.hcl or longer <strong>kastmenu</strong> myfile.xml)</em>  </p>
+<p>An Attribute &quot;command&quot; can explicitly call another km process with the option: --follow-menu:<br>e.g.:  </p>
+<Option command="**km** --follow-menu myfile.xml" ...>  
+
+<p><strong>M</strong>enus are <strong>infinitly</strong> imbricable (It is a tree) because:  </p>
+<ul>
+<li><strong>Menu</strong>, <strong>IMenu</strong> are reciprocally imbricables.</li>
+<li><strong>km</strong> process can call another km process indefinitly through the tag&#39;s <strong>command</strong> Attribute.</li>
+</ul>
+<p>The syntax of the kastmenu (km) command is <a href="./cde-km.html">here</a>.<br>The syntax of the convert command is <a href="./cde-convert.html">here</a><br><br></p>
+<p>
+<br>
+
+<strong>3/ <a href="#top">What Public is it dedicated for ?</a></strong>  </p>
+<p><strong>KastAgent is a fair Interactive View of your System</strong>  </p>
+<p>Because it is structured it allows you to publish only what you want the User to see/access on your system.  </p>
+<p>It is also <strong>didactic</strong>, whith the nowaday <strong>Developers/Devops pressure</strong> who want to have more and more access to the system&#39;s commands.<br>This is <strong>not an open ssh</strong> and the Devs can be <strong>happy to see their commands</strong> and openly watch their <strong>not perverted</strong> output.  </p>
+<p>For these reasons KastAgent is suit to:  </p>
+<ul>
+<li><p><strong>New incomming Chalenger Cloud providers:</strong><br>who directly want to compete big ones providing the treasure of nowadays mass of cloud management commands.  </p>
+<ul>
+<li>In a per User basis and didactic and structural way.</li>
+<li>It fast and easy to implement in large scales.</li>
+</ul>
+</li>
+<li><strong>Developers/Devops:</strong><br>Because they want more and more direct accesses to the commands provided by the hyper prolific world<br>of the cloud frameworks of any kinds, public or private.<br>They know them and are actually capable of providing a subset xml of commands to the Admins in order to manages their Applications.</li>
+<li><strong>Cloud Engineers:</strong><br>Who want to provide access to complex but monitored commands of the backends to their peers or users.</li>
+<li><strong>Admins:</strong><br>Who want to provide powerfull but limited access to the backends.<br>Or to provide: install, start, stop, recovering ... commands, to other departments, e.g. to the supervisors.</li>
+<li><strong>DBAs:</strong><br>Who want to access to the strength of their Databases system commands.<br>Or want to publish accesses to their batch commands, to non DBAs expert like night Admins.</li>
+<li><strong>Supervisors:</strong><br>Who have to run heartbeat commands on Applications,<br>or to run dedicated recovering command on them.</li>
+<li><strong>To welcome a Newbee in any of this department:</strong><br>A restrictive but self demonstrating access to a part of your infrastructure.<br>This way the newbee also learn the commands.</li>
+<li><strong>To Students:</strong><br>Students directly see the real commands not perverted by any transformation, running into their real environment.<br>And they can tune them.</li>
+<li><strong>To Training plaform:</strong> Demo, train and test your students on real platforms.
+<br></li>
+</ul>
+<p>
+<br>
+
+<strong>4/ <a href="#top">KastAgent Log System</a></strong>  </p>
+<p>Abusivly called BigBrother.  </p>
+<p>Shows in <strong>Realtime</strong>, in colors and <strong>Visually identical</strong>, the very Menu, the User is running into his private terminal:<br>Each options, each commands, each output the User runs in real time, is seen.<br>This is accessable by a <strong>simple tail -f or cat on the log file</strong> to anyone who has the right to access to it.  </p>
+<p>This is simply powerfull, use it with care.<br>The usefulness of this is obvious.  </p>
+<p>Called with option -L will enable the log system:<br>$ <strong>km</strong> -L -l <logdir> myfile.xml<br><br></p>
+<p>
+<br>
+
+<strong>5/ <a href="#top">KastAgent Replay</a></strong>  </p>
+<p><strong>All Menu actions are replayable.</strong>  </p>
+<p>When the option -L is choosen: km will log and will write a <strong>menupath</strong> for each action taken by the User, into the log file:<br>e.g. menupath: 1..1.3.2.0.0.4<br>When called with a menupath: e.g.:<br>km -g 1..1.3.2.0.0.4 -p 5s  </p>
+<p>KastAgent will <strong>replay</strong> the Menu exactly how it was previously run and <strong>pause</strong> 5 seconds <strong>on every screen</strong>.  </p>
+<p>Note: Beware if the original file (myfile.xml) changes, the menupath may change.<br><br></p>
+<p>
+<br>
+
+<strong>6/ <a href="#top">KastAgent Help Sytem</a></strong>  </p>
+<p>Each KastAgent tag supports an Attribute: &quot;help&quot;.<br>This allows to provide an help at the top level menu and to Each (I)Menu and (I)Option.  </p>
+<p>This help system is multi-language and based on dbm lang dictionaries tuned by the User.<br>Help attributes can either be text literal or link to a key of this dictionary.<br><br></p>
+<p>
+<br>
+
+<strong>7/ <a href="#top">KastAgent runs under the User and this is Powerfull !</a></strong>  </p>
+<p>In the unix world, Software set the User&#39;s credentials and specifics as hidden files under the home directory:<br>For example if I list mine:  </p>
+<p>patrick@server1$ pwd<br><em>/home/patick</em><br>patrick@server1$ ls -a | grep &quot;^\.&quot;<br><em>.docker<br>.kube<br>.profile<br>.ssh<br>.subversion<br>...</em><br>So running under the unix User is running under all his credentials and authorizations to access these softwares.<br><br></p>
+<p>
+<br>
+
+<strong>8/ <a href="#top">KastAgent Install</a></strong>  </p>
+<p><strong>K</strong>astAgent is automatically installed by KastMenu the first time the user tries to access to a new machine/VM.__</p>
+<p>Run:<br><strong>/opt/kastmenu/current/bin/km  /opt/kastmenu/current/conf/welcome/tutorials.xml</strong>  </p>
+<p>Now you can start by cloning editing tutorials.xml with your own shell commands,<br>or create your own menu files.  </p>
+<p>kastmenu_1.0 was tested under:<br>Operating System: Ubuntu 20.04.5 LTS  </p>
+<p>Please let us know any issue at:   </p>
+<ul>
+<li>the bugzilla or  </li>
+<li>kastmenu@kastmenu.org  </li>
+</ul>
+<hr>
+<p>Trademarks :</p>
+<ul>
+<li>&quot;Docker&quot; is a trademark or registered trademark of Docker, Inc.</li>
+<li>&quot;K8S&quot;, &quot;kubernetes&quot; is a trademark or registered trademark of The Linux Foundation .</li>
+<li>&quot;Apache Subversion, Subversion&quot; and are trademarks of the Apache Software Foundation.</li>
+<li>Other names may be trademarks of their respective owners.</li>
+</ul>
+<hr>
+<p>Copyright © 2024 - Patrick Germain Placidoux</p>

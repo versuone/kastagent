@@ -1,0 +1,18 @@
+[req]
+distinguished_name = req_dn
+prompt = no
+
+[req_dn]
+CN=kastweb.kastmenu.{{HOSTNAME}}
+OU=kastweb
+OU=kastmenu
+O={{HOSTNAME}}
+DC=kastweb.kastmenu.{{HOSTNAME}}
+
+[ v3_ca_has_san ]
+basicConstraints       = CA:TRUE
+subjectKeyIdentifier   = hash
+authorityKeyIdentifier = keyid, issuer
+
+
+
